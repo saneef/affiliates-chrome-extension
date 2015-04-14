@@ -22,5 +22,12 @@
     "default_title": "affiliates",
     "default_popup": "popup.html"
   },
+  "permissions": [
+    "http://*.amazon.in/",
+    "https://*.amazon.in/",
+    "storage",
+    "webRequest",
+    "webRequestBlocking"
+  ],
   "options_page": "options.html"
 }
