@@ -10,7 +10,7 @@ function updateTrackId() {
 
     if (!data._trackIdAmazonIn) {
       chrome.storage.sync.set({
-        '_trackIdAmazonIn': 'saneef-21'
+        '_trackIdAmazonIn': 'gingerjooscom-21'
       });
     }
 
