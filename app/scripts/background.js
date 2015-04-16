@@ -24,10 +24,6 @@ chrome.runtime.onInstalled.addListener(function (details) {
   console.log('previousVersion', details.previousVersion);
 });
 
-chrome.tabs.onUpdated.addListener(function (tabId) {
-  chrome.pageAction.show(tabId);
-});
-
 // returns the url with key-value pair added to the parameter string.
 // if key already exists, the value will be replaced
 function insertParam(url, key, value) {
@@ -77,6 +73,11 @@ chrome.webRequest.onBeforeRequest.addListener(
           details.url.search('ap/widget') === -1) {
             // redirect them to the url with the new tracking id parameter inserted
         return { redirectUrl: insertParam(details.url, _key, trackId) };
+      }
+
+      if (details.url.search(trackId) !== -1) {
+        console.log('Showing page action for tab:',details.tabId);
+        chrome.pageAction.show(details.tabId);
       }
     }
   },
